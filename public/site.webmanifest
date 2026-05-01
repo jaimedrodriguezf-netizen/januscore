@@ -1,0 +1,16 @@
+{
+  "name": "Janus Core",
+  "short_name": "Janus Core",
+  "description": "Bits, Átomos e Inteligencia: Conectamos tus activos con el futuro",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0F",
+  "theme_color": "#00D4FF",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

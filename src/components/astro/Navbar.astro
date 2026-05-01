@@ -1,0 +1,91 @@
+---
+import { siteData } from '../../data/siteData';
+const { navLinks } = siteData;
+---
+
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  aria-label="Navegación principal"
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
+    <!-- Logo -->
+    <a
+      href="#inicio"
+      class="text-xl md:text-2xl font-bold text-primary hover:text-primary/80 transition-colors"
+    >
+      Janus Core
+    </a>
+
+    <!-- Desktop nav links -->
+    <ul class="hidden lg:flex items-center gap-8">
+      {navLinks.map((link) => (
+        <li key={link.href}>
+          <a
+            href={link.href}
+            class="text-sm text-text-secondary hover:text-primary transition-colors duration-200 font-medium tracking-wide"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Desktop CTA -->
+    <a
+      href="#contacto"
+      class="hidden lg:inline-flex items-center px-6 py-2.5 rounded-full bg-primary text-bg font-semibold text-sm hover:bg-primary/90 transition-all duration-200 shadow-lg shadow-primary/20"
+    >
+      Contactanos
+    </a>
+
+    <!-- Mobile hamburger button — placeholder for MobileNav React island -->
+    <button
+      id="menu-toggle"
+      class="lg:hidden flex flex-col items-center justify-center w-10 h-10 gap-1.5 rounded-lg hover:bg-surface/50 transition-colors"
+      aria-label="Abrir menú de navegación"
+      aria-expanded="false"
+    >
+      <span class="block w-6 h-0.5 bg-text rounded-full transition-all duration-200"></span>
+      <span class="block w-6 h-0.5 bg-text rounded-full transition-all duration-200"></span>
+      <span class="block w-6 h-0.5 bg-text rounded-full transition-all duration-200"></span>
+    </button>
+  </div>
+</nav>
+
+<script>
+  /** Scroll listener: toggles glassmorphism effect on navbar */
+  const navbar = document.getElementById('navbar');
+
+  if (navbar) {
+    const onScroll = () => {
+      const scrolled = window.scrollY > 80;
+      navbar.dataset.scrolled = String(scrolled);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Initial check
+    onScroll();
+
+    // Cleanup on page navigation (Astro SPA)
+    document.addEventListener('astro:before-swap', () => {
+      window.removeEventListener('scroll', onScroll);
+    });
+  }
+</script>
+
+<style>
+  nav[data-scrolled="true"] {
+    background-color: color-mix(in srgb, var(--color-surface) 85%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  nav[data-scrolled="false"] {
+    background-color: transparent;
+    backdrop-filter: none;
+    border-bottom: 1px solid transparent;
+  }
+</style>
