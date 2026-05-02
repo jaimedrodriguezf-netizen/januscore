@@ -1,43 +1,87 @@
-# Astro Starter Kit: Minimal
+# 🌌 Janus Core Landing
 
-```sh
-npm create astro@latest -- --template minimal
+**Bits, Átomos e Inteligencia**
+
+Janus Core es la conexión definitiva entre el mundo físico y la inteligencia digital. Esta plataforma presenta soluciones de **IoT Industrial, Mantenimiento Predictivo y Automatización Inteligente**, diseñadas para transformar la operación de activos físicos mediante tecnología de vanguardia.
+
+[![Live Site](https://img.shields.io/badge/Live-januscore.pro-00D4FF?style=for-the-badge)](https://januscore.pro)
+[![Stack](https://img.shields.io/badge/Stack-Astro%20|%20React%20|%20Tailwind-7B61FF?style=for-the-badge)](#-tech-stack)
+
+---
+
+## ✨ Características Principales
+
+- 🚀 **Performance Extrema**: Construido con **Astro 6** para una carga instantánea y SEO optimizado.
+- 📱 **Mobile-First & Ultra-Compact**: Menú lateral tipo "Command Center" diseñado para eficiencia y estética técnica.
+- 💎 **Diseño Premium**: Interfaz con efectos de *glassmorphism*, desenfoques en tiempo real y animaciones cinemáticas con **Framer Motion**.
+- 🛠️ **Arquitectura de Islas**: Componentes interactivos de **React 19** hidratados solo donde es necesario.
+- 📞 **Conversión Directa**: Flujo de contacto profesional integrado con WhatsApp y E-mail, sin formularios pesados.
+
+---
+
+## 🛠️ Tech Stack
+
+El proyecto utiliza las herramientas más modernas del ecosistema frontend:
+
+- **Framework**: [Astro 6.2](https://astro.build/) (Static Site Generation)
+- **UI Library**: [React 19](https://react.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/) & [GSAP](https://gsap.com/)
+- **Testing**: [Playwright](https://playwright.dev/) (E2E) & [Vitest](https://vitest.dev/) (Unit)
+- **Validation**: [Zod](https://zod.dev/)
+
+---
+
+## 🚀 Desarrollo y despliegue
+
+### Requisitos
+- Node.js >= 22.12.0
+
+### Instalación
+```bash
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Comandos Locales
+- `npm run dev`: Inicia el servidor de desarrollo en `localhost:3000`.
+- `npm run build`: Genera los archivos estáticos en la carpeta `dist/`.
+- `npm run preview`: Previsualiza el build de producción localmente.
 
-## 🚀 Project Structure
+### 🧪 Testing
+Contamos con una suite de tests automatizados para asegurar la estabilidad visual:
+```bash
+npx playwright test
+```
 
-Inside of your Astro project, you'll see the following folders and files:
+### 🚢 Despliegue (Hostinger)
+El despliegue se realiza de forma quirúrgica vía SSH/Rsync para garantizar que los archivos se actualicen sin interrumpir el servicio:
+```bash
+# Ejemplo de despliegue a producción
+rsync -avz --progress -e 'ssh -p 65002' dist/ u615423061@109.106.250.178:domains/januscore.pro/public_html/
+```
+
+---
+
+## 🏗️ Estructura del Proyecto
 
 ```text
 /
-├── public/
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/       # Componentes Astro y React (Islas)
+│   ├── data/             # Configuración centralizada (siteData.ts)
+│   ├── layouts/          # Plantillas base
+│   ├── pages/            # Rutas del sitio (Astro Router)
+│   └── styles/           # Tokens de diseño y CSS global
+├── public/               # Assets estáticos (SVGs, favicon)
+└── tests/                # Suite de verificación Playwright
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 👨‍💻 Autor
+**Jaime Rodriguez** - [jaimedrodriguezf@gmail.com](mailto:jaimedrodriguezf@gmail.com)
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+<p align="center">
+  Hecho con ❤️ por Janus Core Team
+</p>
